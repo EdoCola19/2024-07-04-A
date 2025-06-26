@@ -19,7 +19,8 @@ class Controller:
         self._view.txt_result1.controls.append(ft.Text(f"Numero di vertici: {self._model._graph.number_of_nodes()}"))
         self._view.txt_result1.controls.append(ft.Text(f"Numero di archi: {self._model._graph.number_of_edges()}"))
         import networkx as nx
-        componenti = list(nx.connected_components(self._model._graph))
+        componenti = list(nx.weakly_connected_components(self._model._graph))
+
         self._view.txt_result1.controls.append(ft.Text(f"Numero di componenti connesse: {len(componenti)}"))
         if len(componenti) > 0:
             componente_max = max(componenti, key=len)

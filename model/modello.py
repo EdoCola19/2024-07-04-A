@@ -3,7 +3,7 @@ import networkx as nx
 
 class Model:
     def __init__(self):
-        self._graph = nx.Graph()
+        self._graph = nx.DiGraph()
         self.sightings = {}
         sights = DAO.get_all_sightings()
         for sight in sights:
@@ -35,8 +35,7 @@ class Model:
                 best_path_ref, best_score_ref):
         # aggiorna best
         if current_score > best_score_ref:
-            best_score_ref.clear()
-            best_path_ref.clear()
+
             best_score_ref += current_score
             best_path_ref.extend(parziale)
 
