@@ -30,14 +30,14 @@ class Controller:
 
             for s in lista:
                 self._view.txt_result1.controls.append(
-                    ft.Text(f"{s.city} - {s.datetime.strftime('%Y-%m-%d')}")
+                    ft.Text(f"id: {s.id} - {s.city} - [{s.state}], {s.datetime}")
                 )
 
 
         self._view._page.update()
 
     def handle_path(self, e):
-        pass
+        self._model.cerca_cammino()
 
     def fillDD(self):
         years = DAO.get_years()
